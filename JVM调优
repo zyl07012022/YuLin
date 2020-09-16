@@ -1,0 +1,19 @@
+如何查看一个正在运行中的java程序，它的某个jvm参数是否开启？具体值是多少？
+第一种查看参数盘点家底：
+jps -l                                              #查看程序进程编号
+jinfo -flag PrintGCDetails 10272                    #查看boolean型参数是否开启
+jinfo -flag MetaspaceSize 10272                     #查看k-v型参数当前值
+jinfo -flag MaxTenuringThreshold 10272              #查看新生代垃圾回收age为多大会进入老年代
+
+jinfo -flags 10272   查询当前进程用到的所有JVM参数
+
+-Xms = -XX:initialHeapSize
+-Xmx = -XX:maxHeapSize
+
+第二种，查看参数盘点家底：
+查看初始值：
+java -XX:+PrintFlagsInitial      =
+
+查看修改之后的值：
+java -XX:+PrintFlagsFinal        :=
+java -XX:+PrintFlagsFinal -version
