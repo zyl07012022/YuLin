@@ -1,3 +1,4 @@
+************************************************************************************************
 如何查看一个正在运行中的java程序，它的某个jvm参数是否开启？具体值是多少？
 第一种查看参数盘点家底：
 jps -l                                              #查看程序进程编号
@@ -17,3 +18,22 @@ java -XX:+PrintFlagsInitial      =
 查看修改之后的值：
 java -XX:+PrintFlagsFinal        :=
 java -XX:+PrintFlagsFinal -version
+
+比如：
+java -XX:+PrintFlagsFinal -XX:MetaspaceSize=512m
+java -XX:+PrintFlagsFinal -Xss128k
+
+java -XX:+PrintCommandLineFlags -version
+
+*****************************************************************************************************
+jvm配置参数有哪些：
+1.-Xms
+2.-Xmx
+3.-Xss
+4.-Xmn
+5.-XX:Metaspace
+  典型设置案例
+6.-XX:PrintGCDetails
+7.-XX:SurvivorRatio
+8.-XX:NewRatio
+9.-XX:MaxTenuringThreshold
