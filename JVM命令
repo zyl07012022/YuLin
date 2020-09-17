@@ -32,11 +32,25 @@ jvm配置参数有哪些：
 3.-Xss    (1).设置单个线程栈的大小,一般为默认512k~1024k   (2).等价于 -XX:ThreadStackSize
 4.-Xmn    设置年轻代的大小
 5.-XX:Metaspace     默认21m
-(1).设置元空间大小   元空间的本质和永久代类似，都是JVM规范中方法区的实现，元空间并不在虚拟机中，二而是使用本地内存，默认情况下，元空间大小受本地内存限制。
-(2).-Xms10m -Xmx10m -XX:MetaSpaceSize=1024m -XX:+PrintFlagsFinal
-典型设置案例模板：
--Xms128m -Xmx4096m -Xss1024k -XX:MetaspaceSize=512m -XX:+PrintCommandLineFlags -XX:+PrintGCDetails -XX:+UseSerialGC
-6.-XX:PrintGCDetails  
-7.-XX:SurvivorRatio
+  (1).设置元空间大小   元空间的本质和永久代类似，都是JVM规范中方法区的实现，元空间并不在虚拟机中，二而是使用本地内存，默认情况下，元空间大小受本地内存限制。
+  (2).-Xms10m -Xmx10m -XX:MetaSpaceSize=1024m -XX:+PrintFlagsFinal
+  典型设置案例模板：
+  -Xms128m -Xmx4096m -Xss1024k -XX:MetaspaceSize=512m -XX:+PrintCommandLineFlags -XX:+PrintGCDetails -XX:+UseSerialGC
+6.-XX:PrintGCDetails  (YGC和FGC前后参数对比)
+7.-XX:SurvivorRatio   
+  设置新生代中eden和s0/s1空间的比例 
+  默认
+  -XX:SurivivorRatio=4,Eden:s0:s1=8:1:1
+  假如
+  -XX:SurvivorRatio=4,Eden:s0:s1=4:1:1
+  SurvivorRatio值就是设置eden区的比例占多少，s0和s1相同
 8.-XX:NewRatio
+  设置年轻代中和老年代的占比
+  默认
+  -XX:NewRatio=2 新生代占1，老年代2，年轻代占整个堆的1/3
+  假如
+  -XX:NewRatio=4 新生代占1，老年代4，年轻代占整个堆的1/5
+  SurvivorRatio值就是设置老年代的比例占多少，剩下的1给新生代
 9.-XX:MaxTenuringThreshold
+  设置垃圾的最大年龄
+  默认15次
