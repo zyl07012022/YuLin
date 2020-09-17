@@ -54,3 +54,12 @@ jvm配置参数有哪些：
 9.-XX:MaxTenuringThreshold
   设置垃圾的最大年龄
   默认15次
+  
+  *******************************************************************************************************
+  OOM的认识：
+  1.java.lang.StackOverflowError
+  2.java.lang.OutOfMemoryError:Java heap space
+  3.java.lang.OutOfMemoryError:GC overhead limit exceeded
+  4.java.lang.OutOfMemoryError:Direct buffer memory
+  5.java.lang.OutOfMemoryError:unable to create new native thread
+  6.java.lang.OutOfMemoryError:Metaspace
