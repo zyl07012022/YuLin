@@ -27,13 +27,16 @@ java -XX:+PrintCommandLineFlags -version
 
 *****************************************************************************************************
 jvm配置参数有哪些：
-1.-Xms
-2.-Xmx
-3.-Xss
-4.-Xmn
-5.-XX:Metaspace
-  典型设置案例
-6.-XX:PrintGCDetails
+1.-Xms    (1).初始大小内存，默认为物理内存1/64   (2).等价于 -XX:InitialHeapSize
+2.-Xmx    (1).最大分配内存，默认为物理内存1/4    (2).等价于 -XX:maxHeapSize
+3.-Xss    (1).设置单个线程栈的大小,一般为默认512k~1024k   (2).等价于 -XX:ThreadStackSize
+4.-Xmn    设置年轻代的大小
+5.-XX:Metaspace     默认21m
+(1).设置元空间大小   元空间的本质和永久代类似，都是JVM规范中方法区的实现，元空间并不在虚拟机中，二而是使用本地内存，默认情况下，元空间大小受本地内存限制。
+(2).-Xms10m -Xmx10m -XX:MetaSpaceSize=1024m -XX:+PrintFlagsFinal
+典型设置案例模板：
+-Xms128m -Xmx4096m -Xss1024k -XX:MetaspaceSize=512m -XX:+PrintCommandLineFlags -XX:+PrintGCDetails -XX:+UseSerialGC
+6.-XX:PrintGCDetails  
 7.-XX:SurvivorRatio
 8.-XX:NewRatio
 9.-XX:MaxTenuringThreshold
