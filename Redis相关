@@ -1,1 +1,16 @@
+                                Redis相关知识：
+1.Redis数据存储。
+String  list Hash Set  Zset
+set k1 v1
+keys *
 
+2.Redis持久化.
+(1).RDB  
+(2).AOF
+
+3.Redis事务。
+开启事务 MULTI
+
+4.Redis主从复制。
+
+5.Jedis客户端。
